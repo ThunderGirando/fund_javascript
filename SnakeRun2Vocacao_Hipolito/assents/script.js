@@ -38,7 +38,7 @@ const incrementScore = () => {
 
 //Criar uma posição aleatoria da Apple
 const randomNumber = (min, max) => {
-  return Math.round(Math.random() * (max - min) + min)
+  return Math.round(Math.random() * (max - min) - 7 + 1)
 }
 
 
@@ -60,7 +60,7 @@ const randomColor = () => {
 
 
 
-//Criando a const para a Apple, Sempre Laranja
+//Criando a const para a Apple, Sempre Verde
 const food = {
   x: randomPosition(),
   y: randomPosition(),
@@ -84,17 +84,16 @@ const drawFood = () => {
 
 //A const desenhSnake recebe os elementos e cria um começo da Snake
 const drawSnake = () => {
-  ctx.fillStyle = "#66CDAA"
+  ctx.fillStyle = "black"
 
   snake.forEach((position, index) => {
     if (index == snake.length - 1) {
-      ctx.fillStyle = "#FFA500"
+      ctx.fillStyle = "#00a336" 
     }
 
     ctx.fillRect(position.x, position.y, size, size)
   })
 }
-
 
 
 //Mover dentro da Grade
@@ -126,7 +125,7 @@ const moveSnake = () => {
 
 //Cria uma exibição de Grid para os jogadores visualizar a tela do jogo
 const drawGrid = () => {
-  ctx.lineWidth = 1
+  ctx.lineWidth = 0.5
   ctx.strokeStyle = "#DCDCDC"
 
   for (let i = 30; i < canvas.width; i += 30) {
@@ -140,6 +139,7 @@ const drawGrid = () => {
     ctx.lineTo(600, i)
     ctx.stroke()
   }
+  
 }
 
 
@@ -175,6 +175,7 @@ const checkCollision = () => {
   const head = snake[snake.length - 1]
   const canvasLimit = canvas.width - size
   const neckIndex = snake.length - 2
+  
 
   const wallCollision =
     head.x < 0 || head.x > canvasLimit || head.y < 0 || head.y > canvasLimit
@@ -185,6 +186,7 @@ const checkCollision = () => {
 
   if (wallCollision || selfCollision) {
     gameOver()
+    
   }
 }
 
@@ -197,7 +199,9 @@ const gameOver = () => {
   menu.style.display = "flex"
   finalScore.innerText = score.innerText
   canvas.style.filter = "blur(2px)"
+  
 }
+
 
 
 
@@ -215,7 +219,7 @@ const gameLoop = () => {
 
   loopId = setTimeout(() => {
     gameLoop()
-  }, 300)
+  }, 150)
 }
 
 
@@ -248,6 +252,8 @@ buttonPlay.addEventListener("click", () => {
   score.innerText = "00"
   menu.style.display = "none"
   canvas.style.filter = "none"
+  
 
   snake = [initialPosition]
 })
+
