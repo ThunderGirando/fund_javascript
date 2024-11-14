@@ -36,6 +36,7 @@ canvas {
     align-items: center;
     border: 5px solid #8B0000;
 }
+/* Separa a quantidade de pixels da tela */
 
 .score {
     display: flex;
@@ -45,6 +46,7 @@ canvas {
     color: #f5efea;
 
 }
+/* Exibe a Pontuação atual */
 
 .score--value {
     font-weight: 700;
@@ -52,6 +54,7 @@ canvas {
     display: block;
     margin-top: -10px;
 }
+/* Exibe a pontuação final */
 
 .menu-screen {
     position: absolute;
@@ -60,13 +63,14 @@ canvas {
     align-items: center;
     z-index: 1;
 }
-
+/* Exibe a tela para reniciar o jogo */
 .game-over {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 3rem;
     color: #f5efea;
 }
+/* Exibe a tela de fim de jogo */
 
 .final-score {
     font-size: 1.5rem;
@@ -88,7 +92,7 @@ canvas {
     gap: 5px;
     cursor: pointer;
 }
-
+/* Exibe uma classe de botão para contunar após dar game over */
 footer {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: #696969a1;
